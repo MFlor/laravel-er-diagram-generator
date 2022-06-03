@@ -20,9 +20,9 @@ class Edge extends \phpDocumentor\GraphViz\Edge
     /**
      * @param Node $from
      * @param Node $to
-     * @return Edge|\phpDocumentor\GraphViz\Edge
+     * @return Edge
      */
-    public static function create(Node $from, Node $to) {
+    public static function create(Node $from, Node $to): self {
         return new static($from, $to);
     }
 
@@ -47,7 +47,7 @@ class Edge extends \phpDocumentor\GraphViz\Edge
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         $attributes = array();
         foreach ($this->attributes as $value) {

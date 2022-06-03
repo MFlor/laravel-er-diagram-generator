@@ -52,10 +52,9 @@ class GenerationTest extends TestCase
     {
         $this->app['config']->set('erd-generator.directories', [__DIR__.'/Models']);
 
-        Artisan::call('generate:erd', [
+        $this->artisan('generate:erd', [
             '--format' => 'jpeg'
-        ]);
-
-        $this->assertContains('Wrote diagram to graph.jpeg', Artisan::output());
+        ])->assertExitCode(0)
+            ->expectsOutput('Wrote diagram to graph.jpeg');
     }
 }
